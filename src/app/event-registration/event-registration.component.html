@@ -51,7 +51,12 @@
         
         <!-- Resumen del Costo -->
         <div class="total-cost">
-          <h3>Total: ${{ totalCost }}</h3>
+          <h3>X 1 dia: ${{ totalCost / 2}}</h3>
+        </div>
+
+        <!-- Resumen del Costo -->
+        <div class="total-cost">
+          <h3>X 2 dias: ${{ totalCost }}</h3>
         </div>
         
         <!-- Input para Número de WhatsApp -->
@@ -59,7 +64,7 @@
         <div class="child-group">
           <input type="tel" formControlName="whatsappNumber" placeholder="Ej: 5493411234567" />
         </div>
-        <button type="button" class="confirm-btn" (click)="sendWhatsApp()">✅ Confirmar e Inscribirme</button>
+        <button type="button" class="confirm-btn" (click)="sendWhatsApp()">✅ Enviar </button>
       </form>
     </div>
   </div>

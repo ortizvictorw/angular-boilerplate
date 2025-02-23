@@ -63,31 +63,57 @@ export class EventRegistrationComponent {
   sendWhatsApp(): void {
     const type = this.eventForm.get('type')?.value;
     const whatsappNumber = this.eventForm.get('whatsappNumber')?.value;
-
+  
     // Validar que el número de WhatsApp sea correcto
     if (!whatsappNumber || !/^\d{10,15}$/.test(whatsappNumber)) {
-      alert('Por favor, ingresa un número de WhatsApp válido.');
+      alert('⚠️ Por favor, ingresa un número de WhatsApp válido.');
       return;
     }
-
-    let message = `Carnaval IEPE 2025 (3 y 4 de Marzo).\n`;
-    
+  
+    let message = `🎉 *Carnaval IEPE 2025* 🎭\n📅 *3 y 4 de Marzo*\n\n`;
+  
+    // Agregar opción seleccionada
     if (type === 'individual') {
-      message += `- Opción: Individual\n`;
-      message += `- Total: $${this.totalCost}`;
+      message += `✅ *Opción seleccionada:* Individual\n`;
     } else if (type === 'married_no_kids') {
-      message += `- Opción: Matrimonio sin hijos\n`;
-      message += `- Total: $${this.totalCost}`;
+      message += `✅ *Opción seleccionada:* Matrimonio sin hijos\n`;
     } else if (type === 'married_with_kids') {
-      message += `- Opción: Matrimonio con hijos\n`;
-      message += `- Total: $${this.totalCost}\n`;
-      message += `- Hijos:\n`;
-
-      message += `  - 0 a 4 años: ${this.eventForm.get('children_0_4')?.value}\n`;
-      message += `  - 5 a 9 años: ${this.eventForm.get('children_5_9')?.value}\n`;
-      message += `  - 10+ años: ${this.eventForm.get('children_10_plus')?.value}\n`;
+      message += `✅ *Opción seleccionada:* Matrimonio con hijos\n`;
+  
+      // Agregar hijos solo si tienen cantidad mayor a 0
+      let hijosMessage = '';
+  
+      const children_0_4 = this.eventForm.get('children_0_4')?.value;
+      const children_5_9 = this.eventForm.get('children_5_9')?.value;
+      const children_10_plus = this.eventForm.get('children_10_plus')?.value;
+  
+      if (children_0_4 > 0) {
+        hijosMessage += `👶 *Hijos de 0 a 4 años:* ${children_0_4}\n`;
+      }
+      if (children_5_9 > 0) {
+        hijosMessage += `🧒 *Hijos de 5 a 9 años:* ${children_5_9}\n`;
+      }
+      if (children_10_plus > 0) {
+        hijosMessage += `👦 *Hijos de 10+ años:* ${children_10_plus}\n`;
+      }
+  
+      if (hijosMessage) {
+        message += `👨‍👩‍👧‍👦 *Hijos inscritos:*\n${hijosMessage}\n`;
+      }
     }
+  
+    // Agregar precio final
+    message += `💰 *Precio final X 1 DIA:* $${this.totalCost}\n\n`;
 
+    // Agregar precio final
+    message += `💰 *Precio final X 2 DIAS:* $${this.totalCost}\n\n`;
+  
+    // Recordatorio importante
+    message += `⚠️ *No te olvides de anotarte con la hermana Graciela Muñoz* 🙏\n\n`;
+  
+    // Mensaje final con bendición
+    message += `✨ *Te esperamos! Dios te bendiga.* 🙌🎊`;
+  
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
