@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="card">
+    <!-- Video Publicitario -->
+    <div class="video-container">
+      <iframe
+        width="100%"
+        height="200"
+        src="https://www.youtube.com/embed/LbfyBLP2GZ4"
+        title="Carnaval Publicidad"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- Formulario de Registro -->
+    <div class="form-container">
+      <!-- Título con Logo -->
+      <div class="title-container">
+        <h2>Carnaval 2025 IEPE</h2>
+        <img src="assets/logo.jpg" alt="Logo Carnaval" class="logo">
+      </div>
+
+      <form [formGroup]="eventForm">
+        <!-- Selección de Tipo de Registro -->        
+        <select id="type" formControlName="type">
+          <option value="individual">Individual</option>
+          <option value="married_no_kids">Matrimonio sin hijos</option>
+          <option value="married_with_kids">Matrimonio con hijos</option>
+        </select>
+
+        <!-- Renderiza los inputs de hijos si es "Matrimonio con hijos" -->
+        <div *ngIf="eventForm.get('type')?.value === 'married_with_kids'" class="children-container">
+          <h3>Hijos</h3>
+
+          <div class="child-group">
+            <label>Hijos de 0 a 4 años (Sin costo)</label>
+            <input type="number" formControlName="children_0_4" min="0" />
+          </div>
+
+          <div class="child-group">
+            <label>Hijos de 5 a 9 años ($12,500 c/u)</label>
+            <input type="number" formControlName="children_5_9" min="0" />
+          </div>
+
+          <div class="child-group">
+            <label>Hijos de 10 años en adelante ($25,000 c/u)</label>
+            <input type="number" formControlName="children_10_plus" min="0" />
+          </div>
+        </div>
+
+        
+        <!-- Resumen del Costo -->
+        <div class="total-cost">
+          <h3>Total: ${{ totalCost }}</h3>
+        </div>
+        
+        <!-- Input para Número de WhatsApp -->
+        <p>Mandatelo al Whatsapp para no olvidarte</p>
+        <div class="child-group">
+          <input type="tel" formControlName="whatsappNumber" placeholder="Ej: 5493411234567" />
+        </div>
+        <button type="button" class="confirm-btn" (click)="sendWhatsApp()">✅ Confirmar e Inscribirme</button>
+      </form>
+    </div>
+  </div>
+</div>

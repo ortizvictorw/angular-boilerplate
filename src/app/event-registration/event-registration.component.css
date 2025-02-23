@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+}
+
+.video-container {
+  width: 100%;
+  background: black;
+}
+
+/* Centrado del título con logo */
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Espacio entre texto y logo */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.title-container h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.form-container {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+.child-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.child-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.confirm-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #28a745;
+  color: white;
+}
+
+.total-cost {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
