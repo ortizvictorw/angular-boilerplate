@@ -42,6 +42,19 @@
           </div>
         </div>
 
+        <!-- Mensaje de información para "Matrimonio con hijos" -->
+        <div *ngIf="eventForm.get('type')?.value === 'married_with_kids'" class="info-box">
+          <h4>📢 Importante</h4>
+          <p>El costo para matrimonios con hijos depende de la edad de los niños:</p>
+          <ul>
+            <li><strong>👶 Todos los hijos menores de 4 años:</strong> Los padres pagan <strong>$30,000</strong> cada
+              uno.</li>
+            <li><strong>🧒 Al menos un hijo mayor de 4 años:</strong> Los padres pagan <strong>$25,000</strong> cada
+              uno.</li>
+          </ul>
+        </div>
+
+
 
 
         <!-- Resumen del Costo -->
@@ -67,7 +80,7 @@
 
         <!-- Input para Número de WhatsApp -->
         <p>Mandatelo al Whatsapp para no olvidarte</p>
-        <div >
+        <div>
           <input class="tel" type="tel" formControlName="whatsappNumber" placeholder="Ej: 3411234567" />
         </div>
         <button type="button" class="confirm-btn" (click)="sendWhatsApp()">✅ Enviar </button>

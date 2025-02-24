@@ -42,23 +42,31 @@ export class EventRegistrationComponent {
   calculateTotalCost(): void {
     const type = this.eventForm.get('type')?.value;
     let total = 0;
-
+  
     if (type === 'individual') {
       total = 35000;
     } else if (type === 'married_no_kids') {
       total = 30000 * 2; // 2 adultos sin hijos
     } else if (type === 'married_with_kids') {
-      total = 25000 * 2; // 2 adultos con hijos
-
+      const children_0_4 = this.eventForm.get('children_0_4')?.value || 0;
       const children_5_9 = this.eventForm.get('children_5_9')?.value || 0;
       const children_10_plus = this.eventForm.get('children_10_plus')?.value || 0;
-
+  
+      const hasOlderChildren = children_5_9 > 0 || children_10_plus > 0;
+  
+      if (hasOlderChildren) {
+        total = 25000 * 2; // Si hay al menos un hijo mayor de 4 años, los padres pagan 25.000 cada uno
+      } else {
+        total = 30000 * 2; // Si todos los hijos son menores de 4 años, los padres pagan 30.000 cada uno
+      }
+  
       total += children_5_9 * 12500;
       total += children_10_plus * 25000;
     }
-
+  
     this.totalCost = total;
   }
+  
 
   sendWhatsApp(): void {
     const type = this.eventForm.get('type')?.value;
