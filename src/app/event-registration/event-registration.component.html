@@ -51,17 +51,23 @@
         
         <!-- Resumen del Costo -->
         <div class="total-cost" *ngIf="eventForm.get('type')?.value === 'individual'">
-          <h3>Precio X Persona (2 dias): ${{ totalCost }}</h3>
+          <h3>Precio X Persona (2 dias)</h3>
+          <span class="price">${{ totalCost }}</span>
         </div>
 
         <!-- Resumen del Costo -->
-          <div class="total-cost" *ngIf="eventForm.get('type')?.value === 'married_no_kids'">
-          <h3>Precio X Matrimonio (2 dias): ${{ totalCost }}</h3>
+        <div class="total-cost" *ngIf="eventForm.get('type')?.value === 'married_no_kids'">
+          <h3>
+            Precio X Matrimonio (2 dias)<br />
+            <span class="price">${{ totalCost }}</span>
+          </h3>
         </div>
+
 
            <!-- Resumen del Costo -->
            <div class="total-cost" *ngIf="eventForm.get('type')?.value === 'married_with_kids'">
-            <h3>Precio X Familia (2 dias): ${{ totalCost }}</h3>
+            <h3>Precio X Familia (2 dias)</h3>
+            <span class="price">${{ totalCost }}</span>
           </div>
         
         <!-- Input para Número de WhatsApp -->

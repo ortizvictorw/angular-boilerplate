@@ -84,6 +84,35 @@ select {
 
 .total-cost {
   margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f0f8ff;
   font-size: 1.2em;
   font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.total-cost:hover {
+  background-color: #e6f2ff;
+}
+
+.total-cost h3 {
+  margin: 0;
+}
+
+.total-cost .price {
+  display: block;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Estilos responsivos para móviles */
+@media (max-width: 480px) {
+  .total-cost {
+    font-size: 1em;
+    padding: 10px;
+  }
 }
