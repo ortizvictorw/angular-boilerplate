@@ -103,10 +103,7 @@ export class EventRegistrationComponent {
     }
   
     // Agregar precio final
-    message += `💰 *Precio final X 1 DIA:* $${this.totalCost / 2}\n\n`;
-
-    // Agregar precio final
-    message += `💰 *Precio final X 2 DIAS:* $${this.totalCost}\n\n`;
+    message += `💰 *Precio final por persona (2 DIAS):* $${this.totalCost }\n\n`;
   
     // Recordatorio importante
     message += `⚠️ *No te olvides de anotarte con la hermana Graciela Muñoz* 🙏\n\n`;
