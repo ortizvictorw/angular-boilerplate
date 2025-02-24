@@ -164,7 +164,6 @@ select {
 /* Ajustes para móviles */
 @media (max-width: 480px) {
   .child-group {
-    width: 90px;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -177,5 +176,9 @@ select {
 
   .child-group input {
     width: 80px;
+  }
+
+  .tel{
+    width: 95%;
   }
 }
