@@ -5,7 +5,7 @@
       <iframe
         width="100%"
         height="200"
-        src="https://www.youtube.com/embed/yLtDgkIaG_k"
+        src="https://www.youtube.com/embed/-XvU-bjGmfg"
         title="Carnaval Publicidad"
         frameborder="0"
         allowfullscreen
@@ -50,9 +50,19 @@
 
         
         <!-- Resumen del Costo -->
-        <div class="total-cost">
-          <h3>Precio por persoan (2 dias): ${{ totalCost }}</h3>
+        <div class="total-cost" *ngIf="eventForm.get('type')?.value === 'individual'">
+          <h3>Precio X Persona (2 dias): ${{ totalCost }}</h3>
         </div>
+
+        <!-- Resumen del Costo -->
+          <div class="total-cost" *ngIf="eventForm.get('type')?.value === 'married_no_kids'">
+          <h3>Precio X Matrimonio (2 dias): ${{ totalCost }}</h3>
+        </div>
+
+           <!-- Resumen del Costo -->
+           <div class="total-cost" *ngIf="eventForm.get('type')?.value === 'married_with_kids'">
+            <h3>Precio X Familia (2 dias): ${{ totalCost }}</h3>
+          </div>
         
         <!-- Input para Número de WhatsApp -->
         <p>Mandatelo al Whatsapp para no olvidarte</p>
