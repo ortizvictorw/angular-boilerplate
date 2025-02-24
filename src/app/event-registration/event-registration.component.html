@@ -2,14 +2,8 @@
   <div class="card">
     <!-- Video Publicitario -->
     <div class="video-container">
-      <iframe
-        width="100%"
-        height="200"
-        src="https://www.youtube.com/embed/-XvU-bjGmfg"
-        title="Carnaval Publicidad"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
+      <iframe width="100%" height="200" src="https://www.youtube.com/embed/-XvU-bjGmfg" title="Carnaval Publicidad"
+        frameborder="0" allowfullscreen></iframe>
     </div>
 
     <!-- Formulario de Registro -->
@@ -21,14 +15,14 @@
       </div>
 
       <form [formGroup]="eventForm">
-        <!-- Selección de Tipo de Registro -->        
+        <!-- Selección de Tipo de Registro -->
         <select id="type" formControlName="type">
           <option value="individual">Individual</option>
           <option value="married_no_kids">Matrimonio sin hijos</option>
           <option value="married_with_kids">Matrimonio con hijos</option>
         </select>
 
-        <!-- Renderiza los inputs de hijos si es "Matrimonio con hijos" -->
+        <!-- Render inputs for children if "Matrimonio con hijos" -->
         <div *ngIf="eventForm.get('type')?.value === 'married_with_kids'" class="children-container">
           <h3>Hijos</h3>
 
@@ -48,7 +42,8 @@
           </div>
         </div>
 
-        
+
+
         <!-- Resumen del Costo -->
         <div class="total-cost" *ngIf="eventForm.get('type')?.value === 'individual'">
           <h3>Precio X Persona (2 dias)</h3>
@@ -64,12 +59,12 @@
         </div>
 
 
-           <!-- Resumen del Costo -->
-           <div class="total-cost" *ngIf="eventForm.get('type')?.value === 'married_with_kids'">
-            <h3>Precio X Familia (2 dias)</h3>
-            <span class="price">${{ totalCost }}</span>
-          </div>
-        
+        <!-- Resumen del Costo -->
+        <div class="total-cost" *ngIf="eventForm.get('type')?.value === 'married_with_kids'">
+          <h3>Precio X Familia (2 dias)</h3>
+          <span class="price">${{ totalCost }}</span>
+        </div>
+
         <!-- Input para Número de WhatsApp -->
         <p>Mandatelo al Whatsapp para no olvidarte</p>
         <div class="child-group">
