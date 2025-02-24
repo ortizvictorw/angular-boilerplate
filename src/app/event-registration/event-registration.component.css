@@ -151,13 +151,18 @@ select {
   color: #333;
 }
 
-.child-group input {
+.child-group input .tel{
   width: 60px;
   text-align: center;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1em;
+}
+
+.child-group input .tel {
+  width: 90px;
+
 }
 
 /* Ajustes para móviles */
